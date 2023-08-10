@@ -11,7 +11,7 @@
 - name: Update VMware Tools
   community.vmware.vmware_guest_tools_upgrade:
     hostname: "{{ vm_vcenter }}"
-    hostname: "{{ vm_vcenter }}"
+    datacenter: "{{ vm_datacenter }}"
     username: "{{ vm_vcenter_username }}"
     password: "{{ vm_vcenter_password }}"
     name: "{{ vm_name }}"
@@ -20,7 +20,7 @@
 - name: Wait for VMware Tools
   community.vmware.vmware_guest_tools_wait:
     hostname: "{{ vm_vcenter }}"
-    hostname: "{{ vm_vcenter }}"
+    datacenter: "{{ vm_datacenter }}"
     username: "{{ vm_vcenter_username }}"
     password: "{{ vm_vcenter_password }}"
     name: "{{ vm_name }}"
