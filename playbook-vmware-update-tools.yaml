@@ -1,0 +1,6 @@
+---
+- name: WMTools Upgrade (If Required)
+  hosts: localhost
+  tasks:
+    - name: Upgrade VMtools to Latest and Wait
+      include_tasks: tasks/vmware-update-tools.yaml
