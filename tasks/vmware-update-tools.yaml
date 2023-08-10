@@ -1,0 +1,28 @@
+---
+# This task will update VMTools
+#
+# Required Variable:
+#  - {{ vm_vcenter }} : vCenter hostname or ip address to connect to.
+#  - {{ vm_datacenter }} : The datacenter the VM is in, inside vCenter.
+#  - {{ vm_name }} : The name of the vm to have tools updated on.
+#  - {{ vm_vcenter_username }} : The username to connect to vCenter.
+#  - {{ vm_vcenter_password }} : The password to connect to vCenter.
+
+- name: Update VMware Tools
+  community.vmware.vmware_guest_tools_upgrade:
+    hostname: "{{ vm_vcenter }}"
+    hostname: "{{ vm_vcenter }}"
+    username: "{{ vm_vcenter_username }}"
+    password: "{{ vm_vcenter_password }}"
+    name: "{{ vm_name }}"
+  delegate_to: localhost
+
+- name: Wait for VMware Tools
+  community.vmware.vmware_guest_tools_wait:
+    hostname: "{{ vm_vcenter }}"
+    hostname: "{{ vm_vcenter }}"
+    username: "{{ vm_vcenter_username }}"
+    password: "{{ vm_vcenter_password }}"
+    name: "{{ vm_name }}"
+    timeout: 600 #Timeout after 10mins (600 seconds)
+  delegate_to: localhost
