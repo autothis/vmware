@@ -15,6 +15,7 @@
     username: "{{ vm_vcenter_username }}"
     password: "{{ vm_vcenter_password }}"
     name: "{{ vm_name }}"
+    validate_certs: "{{ vm_validate_certs }}"
 
 - name: Wait for VMware Tools
   community.vmware.vmware_guest_tools_wait:
@@ -23,4 +24,5 @@
     username: "{{ vm_vcenter_username }}"
     password: "{{ vm_vcenter_password }}"
     name: "{{ vm_name }}"
+    validate_certs: "{{ vm_validate_certs }}"
     timeout: 600 #Timeout after 10mins (600 seconds)
