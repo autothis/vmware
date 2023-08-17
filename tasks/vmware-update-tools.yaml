@@ -16,6 +16,10 @@
     password: "{{ vm_vcenter_password }}"
     name: "{{ vm_name }}"
     validate_certs: "{{ vm_validate_certs }}"
+  register: vmtools_update_results
+
+- debug:
+    msg: "{{ vmtools_update_results.msg }}"
 
 - name: Wait for VMware Tools
   community.vmware.vmware_guest_tools_wait:
@@ -26,3 +30,7 @@
     name: "{{ vm_name }}"
     validate_certs: "{{ vm_validate_certs }}"
     timeout: 600 #Timeout after 10mins (600 seconds)
+  register: vmtools_status
+
+- debug:
+    msg: "{{ vmtools_status.instance.guest_tools_status }}"
