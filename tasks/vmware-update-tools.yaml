@@ -19,7 +19,7 @@
   register: vmtools_update_results
 
 - debug:
-    msg: "{{ vmtools_update_results.msg }}"
+    msg: "{{ vmtools_update_results }}"
 
 - name: Wait for VMware Tools
   community.vmware.vmware_guest_tools_wait:
